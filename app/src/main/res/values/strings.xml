@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Crypto Forecast AI</string>
-    <!-- AdMob Test Ad Unit IDs -->
-    <string name="admob_rewarded_ad_id">ca-app-pub-3940256099942544/5224354917</string>
-    <string name="admob_banner_ad_id">ca-app-pub-3940256099942544/6300978111</string>
+    <!-- Google AdMob Production IDs -->
+    <string name="admob_app_id">ca-app-pub-3207706111232143~2248520583</string>
+    <string name="admob_banner_ad_id">ca-app-pub-3207706111232143/5996193900</string>
+    <string name="admob_rewarded_ad_id">ca-app-pub-3207706111232143/1741913267</string>
 </resources>

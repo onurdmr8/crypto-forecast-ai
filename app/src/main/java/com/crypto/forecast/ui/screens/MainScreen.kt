@@ -25,6 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.crypto.forecast.data.model.*
+import com.crypto.forecast.ui.components.BannerAdView
 import com.crypto.forecast.ui.components.ForecastChart
 import com.crypto.forecast.ui.theme.*
 import com.crypto.forecast.ui.viewmodel.MainViewModel
@@ -89,6 +90,20 @@ fun MainScreen(viewModel: MainViewModel) {
                         fontWeight = FontWeight.Bold,
                         fontSize = 12.sp
                     )
+                }
+            }
+        },
+        bottomBar = {
+            // VIP değilse altta sabit AdMob banner reklam gösterilir
+            if (!isVipUser) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(CardBackground)
+                        .padding(vertical = 4.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    BannerAdView()
                 }
             }
         }
@@ -398,7 +413,7 @@ fun MainScreen(viewModel: MainViewModel) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 

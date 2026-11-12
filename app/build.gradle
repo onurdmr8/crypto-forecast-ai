@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.crypto.forecast'
+    namespace 'com.CryptoForecastai'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.crypto.forecast"
+        applicationId "com.CryptoForecastai"
         minSdk 24
         targetSdk 34
         versionCode 1

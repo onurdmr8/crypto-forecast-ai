@@ -3,6 +3,7 @@ package com.crypto.forecast.data.monetization
 import android.app.Activity
 import android.content.Context
 import android.util.Log
+import com.crypto.forecast.R
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.rewarded.RewardedAd
@@ -12,8 +13,8 @@ class AdMobManager(private val context: Context) {
     private var rewardedAd: RewardedAd? = null
     private var isLoading = false
 
-    // Sample Rewarded Ad ID (Google Test Ad)
-    private val adUnitId = "ca-app-pub-3940256099942544/5224354917"
+    private val adUnitId: String
+        get() = context.getString(R.string.admob_rewarded_ad_id)
 
     init {
         loadRewardedAd()
@@ -61,7 +62,6 @@ class AdMobManager(private val context: Context) {
             loadRewardedAd() // preload next ad
             onAdDismissed()
         } else {
-            // If ad failed to load, reload for next time and optionally unlock or show error
             loadRewardedAd()
             onAdDismissed()
         }
