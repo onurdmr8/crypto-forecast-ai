@@ -20,9 +20,22 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            def keystoreFile = file("release.keystore")
+            if (keystoreFile.exists()) {
+                storeFile keystoreFile
+                storePassword System.getenv("KEYSTORE_PASSWORD") ?: "cryptoforecast2026"
+                keyAlias System.getenv("KEY_ALIAS") ?: "cryptoforecast"
+                keyPassword System.getenv("KEY_PASSWORD") ?: "cryptoforecast2026"
+            }
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

@@ -1,4 +1,4 @@
-name: Build Android APK & AAB (Bundle)
+name: Build Signed Android APK & AAB (Bundle)
 
 on:
   push:
@@ -21,22 +21,34 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Generate Release Keystore
+        run: |
+          keytool -genkeypair -v \
+            -keystore app/release.keystore \
+            -alias cryptoforecast \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass cryptoforecast2026 \
+            -keypass cryptoforecast2026 \
+            -dname "CN=CryptoForecast, OU=Mobile, O=CryptoForecast, L=Istanbul, ST=Istanbul, C=TR"
+
       - name: Setup Gradle 8.4
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: '8.4'
 
-      - name: Build Debug APK & Release Bundle (AAB)
+      - name: Build Signed Debug APK & Release Bundle (AAB)
         run: gradle assembleDebug bundleRelease --stacktrace
 
-      - name: Upload Debug APK Artifact
+      - name: Upload Signed Debug APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
 
-      - name: Upload Release AAB (Google Play Bundle)
+      - name: Upload Signed Release AAB (Google Play Bundle)
         uses: actions/upload-artifact@v4
         with:
-          name: app-release-bundle
+          name: app-release-bundle-signed
           path: app/build/outputs/bundle/release/app-release.aab
