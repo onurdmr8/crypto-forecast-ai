@@ -1,0 +1,40 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Outer Glow Circle -->
+    <path
+        android:strokeColor="#8B5CF6"
+        android:strokeWidth="2.5"
+        android:pathData="M54,22 C71.67,22 86,36.33 86,54 C86,71.67 71.67,86 54,86 C36.33,86 22,71.67 22,54 C22,36.33 36.33,22 54,22 Z" />
+
+    <!-- Cyan Upward Trend Line -->
+    <path
+        android:strokeColor="#06B6D4"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M32,68 L44,56 L54,62 L74,38" />
+
+    <!-- Upward Trend Arrow Head -->
+    <path
+        android:fillColor="#06B6D4"
+        android:strokeColor="#06B6D4"
+        android:strokeWidth="1"
+        android:pathData="M64,38 L76,36 L74,48 Z" />
+
+    <!-- Golden Crypto Node Dots -->
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M32,68m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M44,56m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M54,62m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M74,38m-3.5,0a3.5,3.5 0,1 1,7 0a3.5,3.5 0,1 1,-7 0" />
+</vector>
