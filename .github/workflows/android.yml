@@ -33,10 +33,10 @@ jobs:
             -keypass cryptoforecast2026 \
             -dname "CN=CryptoForecast, OU=Mobile, O=CryptoForecast, L=Istanbul, ST=Istanbul, C=TR"
 
-      - name: Setup Gradle 8.4
+      - name: Setup Gradle 8.9
         uses: gradle/actions/setup-gradle@v3
         with:
-          gradle-version: '8.4'
+          gradle-version: '8.9'
 
       - name: Build Signed Debug APK & Release Bundle (AAB)
         run: gradle assembleDebug bundleRelease --stacktrace

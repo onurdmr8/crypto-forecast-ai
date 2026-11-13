@@ -1,6 +1,5 @@
 package com.crypto.forecast.data.monetization
 
-import android.app.Activity
 import android.content.Context
 import android.util.Log
 import com.android.billingclient.api.*
@@ -12,9 +11,13 @@ class BillingManager(private val context: Context) : PurchasesUpdatedListener {
     private val _isVipUser = MutableStateFlow(false)
     val isVipUser: StateFlow<Boolean> = _isVipUser
 
+    private val pendingPurchasesParams = PendingPurchasesParams.newBuilder()
+        .enableOneTimeProducts()
+        .build()
+
     private val billingClient: BillingClient = BillingClient.newBuilder(context)
         .setListener(this)
-        .enablePendingPurchases()
+        .enablePendingPurchases(pendingPurchasesParams)
         .build()
 
     init {
